@@ -3,15 +3,15 @@
 
 """Udacity Fullstack Developer nanodegree (Item catalg)."""
 
+
 from flask import Flask
+from catalog import catalog
+from auth import auth
+
 app = Flask(__name__)
 
-
-@app.route("/")
-def hello():
-    """Call  test method."""
-    return "Hello World!"
-
+app.register_blueprint(catalog)
+app.register_blueprint(auth)
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
