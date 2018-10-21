@@ -14,7 +14,7 @@ The project uses [virtualbox](https://www.virtualbox.org/wiki/Download_Old_Build
 
 In order to start/view the application you need to run the following steps:
 
-1.  `cd /vagrant && python catalog.py`
+1.  `cd /vagrant && python run.py`
 2.  Go to your browser and view [localhost:5000](http://localhost:5000)
 
 ## References
