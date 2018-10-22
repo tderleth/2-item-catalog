@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block head %}  
+  <script type="module">
+    import "{{ url_for('static', filename='js/components/gauth.js') }}";
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="912423807138-ve12ee3scoe9ep2uirl7ms928v3e75jo.apps.googleusercontent.com">
+{% endblock %}
+
+{% block content %}
+  <div class="g-signin2" data-onsuccess="signInCallback"></div>
+{% endblock %}
