@@ -1,0 +1,30 @@
+{% extends "layouts/base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white mx-0 px-0">
+      <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><a href="{{ url_for('list.index') }}">Lists</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ list.name }}</li>
+    </ol>
+  </nav>
+
+  <h2>{{ list.name }} <small class="text-secondary">({{ list.id }})</small> </h2>
+
+  <form class="" action="{{ url_for('list.destory' ,list_id=list.id) }}" method="DELETE">
+    <button type="submit" class="btn btn-outline-danger mb-2">Delete List</button>
+  </form>
+
+
+  <h2>Create new Todo</h2>
+  <form class="form-inline" method="post" action="">
+    <div class="form-group mr-2 mb-2">
+      <label for="inputPassword2" class="sr-only">Name</label>
+      <input type="text" class="form-control" name="name" placeholder="Buy new shoes">
+    </div>
+    <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
+  </form>
+
+{% endblock %}

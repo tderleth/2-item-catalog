@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white mx-0 px-0">
+      <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Lists</li>
+    </ol>
+  </nav>
+
+  <h2>Lists</h2>
+
+  <div class="list-group mb-5">
+    {% for list in lists %}
+      <a href="{{ url_for('list.show' ,list_id=list.id) }}" class="list-group-item list-group-item-action">{{ list.name }}</a>
+    {% else %}
+      <li class="list-group-item">No list created yet.</li>
+    {% endfor %}
+  </div>
+  
+  <h2>Create new List</h2>
+  <form class="form-inline" method="post" action="{{ url_for('list.create') }}">
+    <div class="form-group mr-2 mb-2">
+      <label for="inputPassword2" class="sr-only">Name</label>
+      <input type="text" class="form-control" name="name" placeholder="Shopping">
+    </div>
+    <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
+  </form>
+
+{% endblock %}
