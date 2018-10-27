@@ -33,7 +33,7 @@ def create_app(config_name):
     from app.server.auth.views import auth
     app.register_blueprint(auth, url_prefix="/auth")
 
-    from app.server.category.views import category
-    app.register_blueprint(category, url_prefix="/categories")
+    from app.server.list.views import list
+    app.register_blueprint(list, url_prefix="/lists")
 
     return app

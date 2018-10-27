@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between mb-5">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between mb-2">
   <div class="container justify-content-between">
     <a class="navbar-brand" href="{{ url_for('main.index') }}">Docket</a>
       <ul class="navbar-nav">
@@ -10,7 +10,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Logout</a>
-            <a class="dropdown-item" href="{{ url_for('category.index') }}">Todo Lists</a>
+            <a class="dropdown-item" href="{{ url_for('list.index') }}">Todo Lists</a>
           </div>
         </li>
         {% else %}

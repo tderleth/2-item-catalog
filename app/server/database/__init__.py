@@ -18,7 +18,7 @@ Base.query = db_session.query_property()
 def init_db():
     """Initialize database."""
     from app.server.database import user
-    from app.server.database import category
+    from app.server.database import list
     from app.server.database import item
 
     Base.metadata.create_all(bind=engine)

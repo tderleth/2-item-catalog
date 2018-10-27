@@ -6,7 +6,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from app.auth.models import User
+from app.sever.database import User
 
 engine = create_engine('sqlite:///database.db')
 
@@ -19,12 +19,12 @@ user = User(name="John Doe", email="john@doe.com",
 session.add(user)
 session.commit()
 
-category = Category(name="Hockey")
+list = List(name="Hockey")
 
-session.add(category)
+session.add(list)
 session.commit()
 
-item = Item(name="Stick", category=category)
+item = Item(name="Stick", list=list)
 
 session.add(item)
 session.commit()
