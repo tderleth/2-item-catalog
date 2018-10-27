@@ -10,17 +10,19 @@ from app.server.database import Base
 
 
 class Item(Base):
-    __tablename__ = 'item'
+    __tablename__ = 'items'
     __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False)
     description = Column(Text, nullable=False)
+    list_id = Column(Integer, ForeignKey('lists.id'))
+    list = relationship("User", back_populates="list")
 
-    def __init__(self, name, description, category_id):
+    def __init__(self, name, description, list_id):
 
         self.name = name
         self.description = description
-        self.category_id = category_id
+        self.list_id = list_id
 
     def __repr__(self):
         return '<Item %r>' % (self.name)

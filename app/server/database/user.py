@@ -3,18 +3,21 @@
 
 """User model."""
 
-from sqlalchemy import Column, Integer, String, Text, ForeignKey
 from app.server.database import Base
+from app.server.database.list import List
+from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy.orm import relationship
 
 
 class User(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'users'
     __table_args__ = {'extend_existing': True}
     email = Column(String(120), unique=True, nullable=False)
     gplus_id = Column(Integer, unique=True, nullable=False)
     id = Column(Integer, primary_key=True, nullable=False)
     picture = Column(Text)
     username = Column(String(80), nullable=False)
+    lists = relationship("List", back_populates="user")
 
     def __init__(self, email, gplus_id, picture, username):
         self.email = email
