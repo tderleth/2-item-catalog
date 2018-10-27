@@ -14,13 +14,6 @@ from google.oauth2 import id_token
 auth = Blueprint("auth", __name__, template_folder="templates")
 
 
-@auth.route("/<username>")
-def show(username):
-    """Show user by username."""
-    u = User.query.filter_by(username=username).first_or_404()
-    return "Hello, {}!".format(u.username)
-
-
 @auth.route('/login')
 def showLogin():
     """Show login page."""
@@ -45,7 +38,7 @@ def google_tokensignin():
     user = getUserByMail(idinfo['email'])
 
     if (user is None):
-        user = User(username=idinfo['given_name'],
+        user = User(username=idinfo['given_name'] + " " + idinfo['family_name'],
                     email=idinfo['email'],
                     picture=idinfo['picture'],
                     gplus_id=idinfo['sub'])
