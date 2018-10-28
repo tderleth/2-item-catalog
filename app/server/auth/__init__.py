@@ -1,10 +1,15 @@
-from server.auth import views
+#!/usr/bin/env python2.7
+# -*- coding: utf-8 -*-
+
+"""Initialize package."""
+
+from flask import redirect, url_for
 from flask import session as login_session
-from flask import Flask, redirect, url_for, request
 from functools import wraps
 
 
 def login_required(f):
+    """Check if user is authenticated."""
     @wraps(f)
     def wrap(*args, **kwargs):
         if login_session.get('logged_in'):
