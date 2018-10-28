@@ -2,11 +2,11 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-md-7">
-      <h1>Welcome to your simple Todo list!</h1>
-      <p class="lead">This is a sample application written in Flask to let you order your Todos in different lists.</p>      
-      <a class="btn btn-outline-dark btn-lg" href="{{ url_for('list.index') }}" role="button">My Lists</a>
+  <div class="row mt-5">
+    <div class="col-md-8">
+      <h1>Welcome to the sample Todo Application!</h1>
+      <p class="lead">This is a sample application written in Flask to let users order Todos in different lists.</p>      
+      <a class="btn btn-outline-dark btn-lg" href="{{ url_for('list.index') }}" role="button">Lists</a>
     </div>
   </div>
 {% endblock %}
