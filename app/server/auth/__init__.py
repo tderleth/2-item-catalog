@@ -12,8 +12,8 @@ def login_required(f):
     """Check if user is authenticated."""
     @wraps(f)
     def wrap(*args, **kwargs):
-        if login_session.get('logged_in'):
-            if login_session['logged_in'] is True:
+        if login_session.get('auth'):
+            if login_session['auth'] is True:
                 return f(*args, **kwargs)
         return redirect(url_for('auth.showLogin'))
 
