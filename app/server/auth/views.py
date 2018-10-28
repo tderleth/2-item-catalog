@@ -46,10 +46,11 @@ def google_tokensignin():
         db_session.add(user)
         db_session.commit()
 
+    login_session['auth'] = True
     login_session['gplus_id'] = user.gplus_id
-    login_session['username'] = user.username
     login_session['picture'] = user.picture
     login_session['user_id'] = user.id
+    login_session['username'] = user.username
 
     flash("Now logged in as %s" % user.username)
     return redirect(url_for('main.index'))

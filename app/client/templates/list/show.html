@@ -13,12 +13,13 @@
 
   <div class="mb-3">
     <span class="h2 align-bottom">{{ list.name }}</span>
-    <a role="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#list-edit-{{ list.id }}">Edit</a>
-    {% include 'list/edit.html' %}
-    <a role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#list-delete-{{ list.id }}">Delete</a>
-    {% include 'list/delete.html' %}
+    {% if session.get('user_id') != None %}
+      <a role="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#list-edit-{{ list.id }}">Edit</a>
+      {% include 'list/edit.html' %}
+      <a role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#list-delete-{{ list.id }}">Delete</a>
+      {% include 'list/delete.html' %}
+    {% endif %}
   </div>
-
 
   <div class="list-group mb-5">
     {% for item in list.items %}
@@ -28,13 +29,15 @@
     {% endfor %}
   </div>
   
-  <h2>Create new Todo</h2>
-  <form class="form-inline" method="post" action="">
-    <div class="form-group mr-2 mb-2">
-      <label for="inputPassword2" class="sr-only">Name</label>
-      <input type="text" class="form-control" name="name" placeholder="Buy new shoes">
-    </div>
-    <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
-  </form>
+  {% if session.get('user_id') != None %}
+    <h2>Create new Todo</h2>
+    <form class="form-inline" method="post" action="">
+      <div class="form-group mr-2 mb-2">
+        <label for="inputPassword2" class="sr-only">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Buy new shoes">
+      </div>
+      <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
+    </form>
+  {% endif %}
 
 {% endblock %}

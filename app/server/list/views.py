@@ -6,6 +6,8 @@
 from app.server.database import db_session
 from app.server.database.list import List
 from app.server.database.user import User
+from flask import session as login_session
+from app.server.auth import login_required
 
 
 from flask import Blueprint, render_template, redirect
@@ -37,6 +39,7 @@ def show(list_id):
 
 
 @list.route('/create', methods=['POST'])
+@login_required
 def create():
     """Store new list."""
     name = request.form.get("name")
@@ -48,6 +51,7 @@ def create():
 
 
 @list.route('/<int:list_id>/destroy', methods=['GET'])
+@login_required
 def destory(list_id):
     """Delete list."""
     list = db_session.query(List).filter(List.id == list_id).first()
@@ -58,6 +62,7 @@ def destory(list_id):
 
 
 @list.route('/<int:list_id>/update', methods=['GET'])
+@login_required
 def update(list_id):
     """Update list."""
     list = db_session.query(List).filter(List.id == list_id).first()
