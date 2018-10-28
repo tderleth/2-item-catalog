@@ -15,6 +15,7 @@ class Config(object):
     PORT = 5000
     HOST = "0.0.0.0"
     SQLALCHEMY_ECHO = True
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
 
 
 class Development(Config):
