@@ -19,12 +19,6 @@ class Item(Base):
     list_id = Column(Integer, ForeignKey('lists.id'))
     name = Column(String(80), nullable=False)
 
-    def __init__(self, name, description, list_id):
-        """Create new model."""
-        self.name = name
-        self.description = description
-        self.list_id = list_id
-
     def __repr__(self):
         """Define custom __repr__ method."""
         return '<Item %r>' % (self.name)

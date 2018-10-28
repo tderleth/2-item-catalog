@@ -17,16 +17,8 @@ class User(Base):
     email = Column(String(120), unique=True, nullable=False)
     gplus_id = Column(Integer, unique=True, nullable=False)
     id = Column(Integer, primary_key=True, nullable=False)
-    lists = relationship("List", back_populates="user")
     picture = Column(Text)
     username = Column(String(80), nullable=False)
-
-    def __init__(self, email, gplus_id, picture, username):
-        """Create new model."""
-        self.email = email
-        self.gplus_id = gplus_id
-        self.picture = picture
-        self.username = username
 
     def is_authenticated(self):
         """Check if user is authenticated."""
