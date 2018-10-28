@@ -4,7 +4,7 @@ window.signInCallback = function signInCallback(googleUser) {
     method: 'POST',
     headers: { 'Content-type': 'application/json; charset=UTF-8' },
     body,
-  }).then((response) => {
+  }).then(() => {
     setTimeout(() => {
       window.location.href = '../..';
     }, 500);
