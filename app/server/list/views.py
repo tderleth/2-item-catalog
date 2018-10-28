@@ -3,11 +3,9 @@
 
 """List views."""
 
+from app.server.auth import login_required
 from app.server.database import db_session
 from app.server.database.list import List
-from app.server.database.user import User
-from flask import session as login_session
-from app.server.auth import login_required
 
 
 from flask import Blueprint, render_template, redirect
