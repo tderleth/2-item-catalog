@@ -18,22 +18,25 @@ list = Blueprint("list", __name__, template_folder="templates")
 @list.route('/')
 def index():
     """Get all lists."""
-    lists = List.query.all()
+    data = List.query.all()
     if '/json' in request.path:
-        return jsonify(lists=[i.serialize for i in lists])
+        lists = []
+        for list in data:
+            lists.append(list.as_dict())
+        return jsonify(lists)
     else:
-        return render_template('list/index.html', lists=lists)
+        return render_template('list/index.html', lists=data)
 
 
 @list.route('/<int:list_id>/json')
 @list.route('/<int:list_id>')
 def show(list_id):
     """Get single list via id."""
-    list = db_session.query(List).filter(List.id == list_id).first()
+    data = db_session.query(List).filter(List.id == list_id).first()
     if '/json' in request.path:
-        return jsonify(list.as_dict())
+        return jsonify(data.as_dict())
     else:
-        return render_template('list/show.html', list=list)
+        return render_template('list/show.html', list=data)
 
 
 @list.route('/create', methods=['POST'])
