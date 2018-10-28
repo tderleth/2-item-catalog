@@ -15,6 +15,16 @@ from flask import jsonify, request, flash, url_for
 item = Blueprint("item", __name__, template_folder="templates")
 
 
+@item.route('/json')
+def index(list_id):
+    """Get all lists."""
+    data = db_session.query(Item).filter(Item.list_id == list_id).all()
+    items = []
+    for item in data:
+        items.append(item.as_dict())
+    return jsonify(items)
+
+
 @item.route('/<int:item_id>/json')
 @item.route('/<int:item_id>')
 def show(list_id, item_id):
