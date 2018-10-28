@@ -3,10 +3,10 @@
 
 {% block content %}
 
-  <nav aria-label="breadcrumb">
+  <nav>
     <ol class="breadcrumb bg-white mx-0 px-0">
       <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Lists</li>
+      <li class="breadcrumb-item active">Lists</li>
     </ol>
   </nav>
 
@@ -20,15 +20,6 @@
     {% endfor %}
   </div>
   
-  {% if session.get('user_id') != None %}
-    <h2>Create new List</h2>
-    <form class="form-inline" method="post" action="{{ url_for('list.create') }}">
-      <div class="form-group mr-2 mb-2">
-        <label for="inputPassword2" class="sr-only">Name</label>
-        <input type="text" class="form-control" name="name" placeholder="Shopping">
-      </div>
-      <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
-    </form>
-  {% endif %}  
+  {% include 'list/create.html' %}
 
 {% endblock %}

@@ -62,12 +62,14 @@ def destory(list_id):
     return redirect(url_for('list.index'))
 
 
-@list.route('/<int:list_id>/update', methods=['GET'])
+@list.route('/<int:list_id>/update', methods=['POST'])
 @login_required
 def update(list_id):
     """Update list."""
     list = db_session.query(List).filter(List.id == list_id).first()
+    name = request.form.get("name")
+    list.name = name
     db_session.add(list)
     db_session.commit()
     flash("List %s was updated" % list.name)
-    return redirect(url_for('list.index'))
+    return redirect(url_for('list.show', list_id=list_id))

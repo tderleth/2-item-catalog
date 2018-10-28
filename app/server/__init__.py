@@ -36,4 +36,7 @@ def create_app(config_name):
     from app.server.list.views import list
     app.register_blueprint(list, url_prefix="/lists")
 
+    from app.server.item.views import item
+    app.register_blueprint(item, url_prefix="/lists/<list_id>/items")
+
     return app

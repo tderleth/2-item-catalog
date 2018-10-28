@@ -1,0 +1,18 @@
+{% if session.get('user_id') != None %}
+  <a class="btn btn-outline-primary mb-3" data-toggle="collapse" href="#item-create" role="button">Add new item</a>
+  <div class="collapse" id="item-create">
+    <h2>Create new Item</h2>
+    <form method="post" action="{{ url_for('item.create', list_id=list.id) }}">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter Item Name">
+      </div>
+      <div class="form-group">
+        <label for="description">Example textarea</label>
+        <textarea class="form-control" name="description" rows="3" placeholder="Enter Item description"></textarea>
+      </div>
+      <input type="hidden" name="list_id" value="{{ list.id }}">
+      <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
+    </form>
+  </div>
+{% endif %}

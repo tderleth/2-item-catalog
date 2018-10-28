@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+  <nav>
+    <ol class="breadcrumb bg-white mx-0 px-0">
+      <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+      <li class="breadcrumb-item active"><a href="{{ url_for('list.index') }}">Lists</a></li>
+      <li class="breadcrumb-item active"><a href="{{ url_for('list.show', list_id=list.id) }}">{{ list.name }}</a></li>
+      <li class="breadcrumb-item active">{{ item.name }}</li>
+    </ol>
+  </nav>
+
+  <div class="mb-3">
+    <span class="h2 align-bottom">{{ item.name }}</span>
+    {% if session.get('user_id') != None %}
+      <div class="float-right">
+        {% include 'item/edit.html' %}
+        {% include 'item/delete.html' %}
+      </div>
+    {% endif %}
+  </div>
+
+  <p> <b>Description:</b> {{ item.description }}</p>
+
+{% endblock %}
