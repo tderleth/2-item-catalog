@@ -6,6 +6,7 @@
 from app.server.database import Base
 from sqlalchemy import Column, Integer, String, Text
 from sqlalchemy.orm import relationship
+from app.server.database import db_session
 
 
 class User(Base):
@@ -38,3 +39,12 @@ class User(Base):
     def as_dict(self):
         """Convert row object to python dict."""
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+def getUserByMail(email):
+    """Get User by mailt."""
+    try:
+        user = db_session.query(User).filter_by(email=email).one()
+        return user
+    except Exception:
+        return None

@@ -4,7 +4,7 @@
 """Auth and User views."""
 
 from app.server.database import db_session
-from app.server.database.user import User
+from app.server.database.user import User, getUserByMail
 from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app
 from flask import session as login_session
 from google.auth.transport import requests
@@ -38,7 +38,8 @@ def google_tokensignin():
     user = getUserByMail(idinfo['email'])
 
     if (user is None):
-        user = User(username=idinfo['given_name'] + " " + idinfo['family_name'],
+        user = User(username=idinfo['given_name']
+                    + " " + idinfo['family_name'],
                     email=idinfo['email'],
                     picture=idinfo['picture'],
                     gplus_id=idinfo['sub'])
@@ -48,6 +49,7 @@ def google_tokensignin():
     login_session['gplus_id'] = user.gplus_id
     login_session['username'] = user.username
     login_session['picture'] = user.picture
+    login_session['user_id'] = user.id
 
     flash("Now logged in as %s" % user.username)
     return redirect(url_for('main.index'))
@@ -58,11 +60,3 @@ def logout():
     """Todo."""
     login_session.clear()
     return redirect(url_for('main.index'))
-
-
-def getUserByMail(email):
-    try:
-        user = db_session.query(User).filter_by(email=email).one()
-        return user
-    except:
-        return None
