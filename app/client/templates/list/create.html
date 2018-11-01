@@ -2,7 +2,7 @@
   <h2>Create new List</h2>
   <form class="form-inline" method="post" action="{{ url_for('list.create') }}">
     <div class="form-group mr-2 mb-2">
-      <input type="text" class="form-control" name="name" placeholder="Enter name">
+      <input type="text" class="form-control" name="name" placeholder="Enter {listname}" required>
     </div>
     <button type="submit" class="btn btn-outline-dark mb-2">Submit</button>
   </form>
