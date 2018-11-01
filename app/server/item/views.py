@@ -42,7 +42,13 @@ def show(list_id, item_id):
 def create(list_id):
     """Store new item."""
     name = request.form.get("name")
+    if not name:
+        flash("Please provide a name")
+        return redirect(url_for('list.show', list_id=list_id))
     description = request.form.get("description")
+    if not description:
+        flash("Please provide a description")
+        return redirect(url_for('list.show', list_id=list_id))
     item = Item(name=name, description=description, list_id=list_id)
     db_session.add(item)
     db_session.commit()
@@ -67,7 +73,13 @@ def update(list_id, item_id):
     """Update item."""
     item = db_session.query(Item).filter(Item.id == item_id).first()
     name = request.form.get("name")
+    if not name:
+        flash("Please provide a name")
+        return redirect(url_for('item.show', list_id=list_id, item_id=item.id))
     description = request.form.get("description")
+    if not description:
+        flash("Please provide a description")
+        return redirect(url_for('item.show', list_id=list_id, item_id=item.id))
     list_id = request.form.get("list_id")
     item.name = name
     item.description = description

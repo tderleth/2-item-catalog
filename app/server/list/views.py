@@ -44,6 +44,9 @@ def show(list_id):
 def create():
     """Store new list."""
     name = request.form.get("name")
+    if not name:
+        flash("Please provide a name")
+        return redirect(url_for('list.index'))
     list = List(name=name)
     db_session.add(list)
     db_session.commit()
@@ -69,6 +72,9 @@ def update(list_id):
     list = db_session.query(List).filter(List.id == list_id).first()
     name = request.form.get("name")
     list.name = name
+    if not name:
+        flash("Please provide a name")
+        return redirect(url_for('list.show', list_id=list_id))
     db_session.add(list)
     db_session.commit()
     flash("List %s was updated" % list.name)
