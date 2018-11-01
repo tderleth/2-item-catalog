@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
-"""Entrypoint for application."""
+"""Configuration for application."""
 
 import json
 import os
@@ -30,14 +30,7 @@ class Development(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-class Testing(Config):
-    """Dev Config class."""
-
-    TESTING = True
-
-
 config = {
     'development': Development,
-    'testing': Testing,
     'default': Development
 }
