@@ -14,7 +14,7 @@ class List(Base):
     __table_args__ = {'extend_existing': True}
     __tablename__ = 'lists'
     id = Column(Integer, primary_key=True)
-    items = relationship("Item", back_populates="list")
+    items = relationship("Item", cascade="all,delete", back_populates="list")
     name = Column(String(80), nullable=False)
 
     def __repr__(self):
