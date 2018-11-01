@@ -59,11 +59,11 @@ Below you find all routes from the application.
 ### CRUD
 
 -   [x] _Does the website read category and item information from a database?_ Website reads category and item information from a database.
--   [ ] _Does the website include a form allowing users to add new items and correctly processes these forms?_ Website includes a form allowing users to add new items and correctly processes submitted forms.
+-   [x] _Does the website include a form allowing users to add new items and correctly processes these forms?_ Website includes a form allowing users to add new items and correctly processes submitted forms.
 -   [x] _Does the website include a form to update a record in the database and correctly processes this form?_ Website does include a form to edit/update a current record in the database table and correctly processes submitted forms.
 -   [x] _Does the website include a way to delete an item from the catalog?_ Website does include a function to delete a current record.
--   [ ] Make sure that users are not able to submit a form to the database until they have added a value. This means you should validate your forms.
--   [ ] Make sure also that when a category is deleted, the item should be deleted along side it. Items should not still be contained in the database when its Parent is deleted.
+-   [x] Make sure that users are not able to submit a form to the database until they have added a value. This means you should validate your forms.
+-   [x] Make sure also that when a category is deleted, the item should be deleted along side it. Items should not still be contained in the database when its Parent is deleted.
 
 ### Authentication & Authorization
 
@@ -73,7 +73,7 @@ Below you find all routes from the application.
 
 ### Code Quality
 
--   [ ] _Is the code ready for personal review and is neatly formatted?_ Code is ready for personal review and neatly formatted and compliant with the Python [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide.
+-   [x] _Is the code ready for personal review and is neatly formatted?_ Code is ready for personal review and neatly formatted and compliant with the Python [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide.
 
 ### Comments
 
@@ -81,7 +81,7 @@ Below you find all routes from the application.
 
 ### Documentation
 
--   [ ] _Is there a README file included detailing all steps required to successfully run the application?_ README file includes details of all the steps required to successfully run the application.
+-   [x] _Is there a README file included detailing all steps required to successfully run the application?_ README file includes details of all the steps required to successfully run the application.
 
 ## Maintainer
 
