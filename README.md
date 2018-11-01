@@ -19,7 +19,7 @@ In order to start/view the application you need to run the following steps:
 
 ## References
 
--   [VM configuration](/Vagrantfile) duplicate of [udacity/fullstack-nanodegree-vm/](https://github.com/udacity/fullstack-nanodegree-vm/blob/master/vagrant/Vagrantfile)
+-   [VM configuration](/Vagrantfile) adjusted version of [udacity/fullstack-nanodegree-vm/](https://github.com/udacity/fullstack-nanodegree-vm/blob/master/vagrant/Vagrantfile)
 -   [Bootstrap](https://getbootstrap.com/)
 -   [flask-sqlalchemy](http://flask-sqlalchemy.pocoo.org/2.3/)
 -   [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
