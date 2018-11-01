@@ -50,20 +50,18 @@ Below you find all routes from the application.
 | /lists/\<list_id>/items/\<int:item_id>/update  | item.update             | POST         | Update item, redirect to `item.show`.                                            |
 | /static/\<path:filename>                       | static                  | GET          | Static files like `css`,`js`,`images`.                                           |
 
-## Requirements
-
--   [Rubic](https://review.udacity.com/#!/rubrics/5/view) 
+## Requirements ([Rubic](https://review.udacity.com/#!/rubrics/5/view))
 
 ### API Endpoints
 
--   [ ] _Does the project implement a JSON endpoint with all required content?_ The project implements a JSON endpoint that serves the same information as displayed in the HTML endpoints for an arbitrary item in the catalog.
+-   [x] _Does the project implement a JSON endpoint with all required content?_ The project implements a JSON endpoint that serves the same information as displayed in the HTML endpoints for an arbitrary item in the catalog.
 
 ### CRUD
 
 -   [x] _Does the website read category and item information from a database?_ Website reads category and item information from a database.
 -   [ ] _Does the website include a form allowing users to add new items and correctly processes these forms?_ Website includes a form allowing users to add new items and correctly processes submitted forms.
--   [ ] _Does the website include a form to update a record in the database and correctly processes this form?_ Website does include a form to edit/update a current record in the database table and correctly processes submitted forms.
--   [ ] _Does the website include a way to delete an item from the catalog?_ Website does include a function to delete a current record.
+-   [x] _Does the website include a form to update a record in the database and correctly processes this form?_ Website does include a form to edit/update a current record in the database table and correctly processes submitted forms.
+-   [x] _Does the website include a way to delete an item from the catalog?_ Website does include a function to delete a current record.
 -   [ ] Make sure that users are not able to submit a form to the database until they have added a value. This means you should validate your forms.
 -   [ ] Make sure also that when a category is deleted, the item should be deleted along side it. Items should not still be contained in the database when its Parent is deleted.
 
@@ -79,7 +77,7 @@ Below you find all routes from the application.
 
 ### Comments
 
--   [ ] _Are comments present and effectively explain longer code procedures?_ Comments are present and effectively explain longer code procedures.
+-   [x] _Are comments present and effectively explain longer code procedures?_ Comments are present and effectively explain longer code procedures.
 
 ### Documentation
 
