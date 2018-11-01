@@ -5,7 +5,8 @@
 
 from app.server.database import db_session
 from app.server.database.user import User, getUserByMail
-from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app
+from flask import Blueprint, render_template, request
+from flask import redirect, url_for, flash, current_app
 from flask import session as login_session
 from google.auth.transport import requests
 from google.oauth2 import id_token
@@ -28,7 +29,8 @@ def google_tokensignin():
         idinfo = id_token.verify_oauth2_token(
             request.get_json(), requests.Request(), client_id)
 
-        if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
+        if idinfo['iss'] not in ['accounts.google.com',
+                                 'https://accounts.google.com']:
             raise ValueError('Wrong issuer.')
 
     except ValueError:
