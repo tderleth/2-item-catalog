@@ -59,6 +59,6 @@ def google_tokensignin():
 
 @auth.route('/logout')
 def logout():
-    """Todo."""
+    """Clear session and redirect to main page."""
     login_session.clear()
     return redirect(url_for('main.index'))

@@ -25,25 +25,25 @@ In order to start/view the application you need to run the following steps:
 
 Below you find all routes from the application.
 
-| URL route                                      | Endpoint name           | HTTP methods       |
-| :--------------------------------------------- | :---------------------- | :----------------- |
-| /auth/google-tokensignin                       | auth.google_tokensignin | OPTIONS, POST      |
-| /auth/login                                    | auth.showLogin          | GET, HEAD, OPTIONS |
-| /auth/logout                                   | auth.logout             | GET, HEAD, OPTIONS |
-| /lists/                                        | list.index              | GET, HEAD, OPTIONS |
-| /lists/\<int:list_id>                          | list.show               | GET, HEAD, OPTIONS |
-| /lists/\<int:list_id>/destroy                  | list.destory            | GET, HEAD, OPTIONS |
-| /lists/\<int:list_id>/json                     | list.show               | GET, HEAD, OPTIONS |
-| /lists/\<int:list_id>/update                   | list.update             | OPTIONS, POST      |
-| /lists/\<list_id>/items/\<int:item_id>         | item.show               | GET, HEAD, OPTIONS |
-| /lists/\<list_id>/items/\<int:item_id>/destroy | item.destory            | GET, HEAD, OPTIONS |
-| /lists/\<list_id>/items/\<int:item_id>/json    | item.show               | GET, HEAD, OPTIONS |
-| /lists/\<list_id>/items/\<int:item_id>/update  | item.update             | OPTIONS, POST      |
-| /lists/\<list_id>/items/create                 | item.create             | OPTIONS, POST      |
-| /lists/\<list_id>/items/json                   | item.index              | GET, HEAD, OPTIONS |
-| /lists/create                                  | list.create             | OPTIONS, POST      |
-| /lists/json                                    | list.index              | GET, HEAD, OPTIONS |
-| /static/\<path:filename>                       | static                  | GET, HEAD, OPTIONS |
+| URL route                                      | Endpoint name           | HTTP methods       | Description                                                                      |
+| :--------------------------------------------- | :---------------------- | :----------------- | :------------------------------------------------------------------------------- |
+| /auth/google-tokensignin                       | auth.google_tokensignin | OPTIONS, POST      | Post request to save user to database if not existent. Redirect to `main.index`. |
+| /auth/login                                    | auth.showLogin          | GET, HEAD, OPTIONS | Show login page.                                                                 |
+| /auth/logout                                   | auth.logout             | GET, HEAD, OPTIONS | Clear session and redirect to `main.index`.                                      |
+| /lists/                                        | list.index              | GET, HEAD, OPTIONS | Show all lists in HTML page.                                                     |
+| /lists/json                                    | list.index              | GET, HEAD, OPTIONS | Return all list resources as JSON endpoint.                                      |
+| /lists/create                                  | list.create             | OPTIONS, POST      | Store new list, redirect to `list.index`.                                        |
+| /lists/\<int:list_id>                          | list.show               | GET, HEAD, OPTIONS | Show one list with corresponding items in HTML page.                             |
+| /lists/\<int:list_id>/json                     | list.show               | GET, HEAD, OPTIONS | Return one list resource as JSON endpoint.                                       |
+| /lists/\<int:list_id>/destroy                  | list.destory            | GET, HEAD, OPTIONS | Delete list, redirect to `list.index`.                                           |
+| /lists/\<int:list_id>/update                   | list.update             | OPTIONS, POST      | Update list, redirect to `list.show`.                                            |
+| /lists/\<list_id>/items/json                   | item.index              | GET, HEAD, OPTIONS | Return all items from one list resource as JSON endpoint.                        |
+| /lists/\<list_id>/items/create                 | item.create             | OPTIONS, POST      | Store new item, redirect to `list.show`.                                         |
+| /lists/\<list_id>/items/\<int:item_id>         | item.show               | GET, HEAD, OPTIONS | Show one item in HTML page.                                                      |
+| /lists/\<list_id>/items/\<int:item_id>/json    | item.show               | GET, HEAD, OPTIONS | Return one item resource as JSON endpoint.                                       |
+| /lists/\<list_id>/items/\<int:item_id>/destroy | item.destory            | GET, HEAD, OPTIONS | Remove item and redirect to `list.show`.                                         |
+| /lists/\<list_id>/items/\<int:item_id>/update  | item.update             | OPTIONS, POST      | Update item, redirect to `item.show`.                                            |
+| /static/\<path:filename>                       | static                  | GET, HEAD, OPTIONS | Static files like `css`,`js`,`images`.                                           |
 
 ## Requirements
 
