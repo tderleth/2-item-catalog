@@ -14,9 +14,10 @@ class User(Base):
 
     __table_args__ = {'extend_existing': True}
     __tablename__ = 'users'
-    email = Column(String(120), unique=True, nullable=False)
-    gplus_id = Column(Integer, unique=True, nullable=False)
     id = Column(Integer, primary_key=True, nullable=False)
+    email = Column(String(120), nullable=False)
+    gplus_id = Column(Integer, unique=True, nullable=False)
+    lists = relationship("List", cascade="all,delete", back_populates="user")
     picture = Column(Text)
     username = Column(String(80), nullable=False)
 

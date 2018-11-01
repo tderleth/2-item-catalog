@@ -14,7 +14,7 @@
 
   <div class="mb-3">
     <span class="h2 align-bottom">{{ item.name }}</span>
-    {% if session.get('user_id') != None %}
+    {% if session.get('user_id') == item.list.user_id %}
       <div class="float-right">
         {% include 'item/edit.html' %}
         {% include 'item/delete.html' %}

@@ -6,6 +6,7 @@
 from app.server.auth import login_required
 from app.server.database import db_session
 from app.server.database.list import List
+from flask import session as login_session
 
 
 from flask import Blueprint, render_template, redirect
@@ -47,7 +48,7 @@ def create():
     if not name:
         flash("Please provide a name")
         return redirect(url_for('list.index'))
-    list = List(name=name)
+    list = List(name=name, user_id=login_session['user_id'])
     db_session.add(list)
     db_session.commit()
     flash("New list %s created" % name)
@@ -59,6 +60,9 @@ def create():
 def destory(list_id):
     """Delete list."""
     list = db_session.query(List).filter(List.id == list_id).first()
+    if(list.user_id != login_session['user_id']):
+        flash("This list does not belong to your account")
+        return redirect(url_for('list.index'))
     db_session.delete(list)
     db_session.commit()
     flash("List %s destroyed" % list.name)
@@ -70,11 +74,14 @@ def destory(list_id):
 def update(list_id):
     """Update list."""
     list = db_session.query(List).filter(List.id == list_id).first()
+    if(list.user_id != login_session['user_id']):
+        flash("This list does not belong to your account")
+        return redirect(url_for('list.show', list_id=list_id))
     name = request.form.get("name")
-    list.name = name
     if not name:
         flash("Please provide a name")
         return redirect(url_for('list.show', list_id=list_id))
+    list.name = name
     db_session.add(list)
     db_session.commit()
     flash("List %s was updated" % list.name)

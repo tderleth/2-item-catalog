@@ -13,7 +13,7 @@
 
   <div class="mb-3">
     <h2 class="d-inline">{{ list.name }}</h2>
-    {% if session.get('user_id') != None %}
+    {% if session.get('user_id') == list.user_id %}
     <div class="float-right">
       {% include 'list/edit.html' %}
       {% include 'list/delete.html' %}      
@@ -28,7 +28,9 @@
       <li class="list-group-item">No items added yet.</li>
     {% endfor %}
   </div>
-  
-  {% include 'item/create.html' %}
+
+  {% if session.get('user_id') == list.user_id %}
+    {% include 'item/create.html' %}
+  {% endif %}
 
 {% endblock %}

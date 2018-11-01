@@ -7,6 +7,7 @@ from app.server.auth import login_required
 from app.server.database import db_session
 from app.server.database.item import Item
 from app.server.database.list import List
+from flask import session as login_session
 
 
 from flask import Blueprint, render_template, redirect
@@ -41,6 +42,10 @@ def show(list_id, item_id):
 @login_required
 def create(list_id):
     """Store new item."""
+    list = db_session.query(List).filter(List.id == list_id).first()
+    if(list.user_id != login_session['user_id']):
+        flash("This list does not belong to your account")
+        return redirect(url_for('list.show', list_id=list_id))
     name = request.form.get("name")
     if not name:
         flash("Please provide a name")
@@ -60,6 +65,10 @@ def create(list_id):
 @login_required
 def destory(list_id, item_id):
     """Delete item."""
+    list = db_session.query(List).filter(List.id == list_id).first()
+    if(list.user_id != login_session['user_id']):
+        flash("This list does not belong to your account")
+        return redirect(url_for('list.show', list_id=list_id))
     item = db_session.query(Item).filter(Item.id == item_id).first()
     db_session.delete(item)
     db_session.commit()
@@ -71,6 +80,10 @@ def destory(list_id, item_id):
 @login_required
 def update(list_id, item_id):
     """Update item."""
+    list = db_session.query(List).filter(List.id == list_id).first()
+    if(list.user_id != login_session['user_id']):
+        flash("This list does not belong to your account")
+        return redirect(url_for('list.show', list_id=list_id))
     item = db_session.query(Item).filter(Item.id == item_id).first()
     name = request.form.get("name")
     if not name:
@@ -80,7 +93,6 @@ def update(list_id, item_id):
     if not description:
         flash("Please provide a description")
         return redirect(url_for('item.show', list_id=list_id, item_id=item.id))
-    list_id = request.form.get("list_id")
     item.name = name
     item.description = description
     item.list_id = list_id
