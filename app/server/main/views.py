@@ -12,4 +12,5 @@ main = Blueprint('main', __name__,)
 
 @main.route('/')
 def index():
+    """Render landing page."""
     return render_template('index.html')

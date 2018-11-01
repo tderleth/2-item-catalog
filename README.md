@@ -21,6 +21,30 @@ In order to start/view the application you need to run the following steps:
 
 [VM configuration](/Vagrantfile) duplicate of [udacity/fullstack-nanodegree-vm/](https://github.com/udacity/fullstack-nanodegree-vm/blob/master/vagrant/Vagrantfile)
 
+## Routes
+
+Below you find all routes from the application.
+
+| URL route                                      | Endpoint name           | HTTP methods       |
+| :--------------------------------------------- | :---------------------- | :----------------- |
+| /auth/google-tokensignin                       | auth.google_tokensignin | OPTIONS, POST      |
+| /auth/login                                    | auth.showLogin          | GET, HEAD, OPTIONS |
+| /auth/logout                                   | auth.logout             | GET, HEAD, OPTIONS |
+| /lists/                                        | list.index              | GET, HEAD, OPTIONS |
+| /lists/\<int:list_id>                          | list.show               | GET, HEAD, OPTIONS |
+| /lists/\<int:list_id>/destroy                  | list.destory            | GET, HEAD, OPTIONS |
+| /lists/\<int:list_id>/json                     | list.show               | GET, HEAD, OPTIONS |
+| /lists/\<int:list_id>/update                   | list.update             | OPTIONS, POST      |
+| /lists/\<list_id>/items/\<int:item_id>         | item.show               | GET, HEAD, OPTIONS |
+| /lists/\<list_id>/items/\<int:item_id>/destroy | item.destory            | GET, HEAD, OPTIONS |
+| /lists/\<list_id>/items/\<int:item_id>/json    | item.show               | GET, HEAD, OPTIONS |
+| /lists/\<list_id>/items/\<int:item_id>/update  | item.update             | OPTIONS, POST      |
+| /lists/\<list_id>/items/create                 | item.create             | OPTIONS, POST      |
+| /lists/\<list_id>/items/json                   | item.index              | GET, HEAD, OPTIONS |
+| /lists/create                                  | list.create             | OPTIONS, POST      |
+| /lists/json                                    | list.index              | GET, HEAD, OPTIONS |
+| /static/\<path:filename>                       | static                  | GET, HEAD, OPTIONS |
+
 ## Requirements
 
 -   [Rubic](https://review.udacity.com/#!/rubrics/5/view) 
