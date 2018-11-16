@@ -1,4 +1,4 @@
-# Project: Logs Analyses
+# Project: Item Catalog
 
 This repo is part of a series of projects belonging to my [Full Stack Web Developer Nanodegree](https://eu.udacity.com/course/full-stack-web-developer-nanodegree--nd004). Purpose of this lesson is to dig deeper into the [flask framework](http://flask.pocoo.org/), oAuth flows as well as API design and implementation.  
 
