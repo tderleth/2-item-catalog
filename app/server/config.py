@@ -41,7 +41,7 @@ class Production(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 config = {
-    'default': Development
+    'default': Development,
     'development': Development,
-    'production': Production,
+    'production': Production
 }
