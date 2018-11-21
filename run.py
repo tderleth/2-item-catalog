@@ -15,11 +15,6 @@ def run(app=None):
             port=app.config['PORT'],
             debug=app.config['DEBUG'])
 
-
-def application(foo, bar):
-    app = create_app('production')
-
-
 if __name__ == '__main__':
     app = create_app('development')
     run(app)
