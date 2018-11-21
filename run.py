@@ -18,7 +18,6 @@ def run(app=None):
 
 def application(foo, bar):
     app = create_app('production')
-    run(app)
 
 
 if __name__ == '__main__':
