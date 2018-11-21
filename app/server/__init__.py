@@ -24,7 +24,7 @@ def create_app(config_name):
 
     # set up extensions
     toolbar.init_app(app)
-    init_db(app.config['SQLALCHEMY_DATABASE_URI'])
+    init_db()
 
     # register blueprints
     from app.server.main.views import main
