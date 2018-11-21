@@ -16,7 +16,6 @@ class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, nullable=False)
     email = Column(String(120), nullable=False)
-    gplus_id = Column(Integer, unique=True, nullable=False)
     lists = relationship("List", cascade="all,delete", back_populates="user")
     picture = Column(Text)
     username = Column(String(80), nullable=False)

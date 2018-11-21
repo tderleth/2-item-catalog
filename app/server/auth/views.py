@@ -43,8 +43,7 @@ def google_tokensignin():
         user = User(username=idinfo['given_name']
                     + " " + idinfo['family_name'],
                     email=idinfo['email'],
-                    picture=idinfo['picture'],
-                    gplus_id=idinfo['sub'])
+                    picture=idinfo['picture'])
         db_session.add(user)
         db_session.commit()
 
