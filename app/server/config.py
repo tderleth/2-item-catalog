@@ -26,7 +26,6 @@ class Development(Config):
     ENV = 'Development'
     RELOAD = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'clave'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class Production(Config):
@@ -37,7 +36,6 @@ class Production(Config):
     ENV = 'Production'
     RELOAD = False
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'clave'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://catalog:secret@localhost/catalog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 config = {
