@@ -31,6 +31,7 @@ class Development(Config):
 class Production(Config):
     """Prod Config class."""
 
+    DEBUG = False
     ENV = 'Production'
     RELOAD = False
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'clave'
