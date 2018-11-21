@@ -3,6 +3,9 @@
 
 """Entrypoint for application."""
 
+import sys
+sys.path.insert(0, '/var/www/html')
+
 from app.server import create_app
 
 
