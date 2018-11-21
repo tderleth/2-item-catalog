@@ -22,7 +22,7 @@ class Development(Config):
     """Dev Config class."""
 
     CLIENT_ID = json.loads(
-        open('app/server/secret.json', 'r').read())['web']['client_id']
+        open('/var/www/html/app/server/secret.json', 'r').read())['web']['client_id']
     ENV = 'Development'
     RELOAD = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'clave'
