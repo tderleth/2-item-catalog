@@ -17,7 +17,7 @@ class Config(object):
     SQLALCHEMY_ECHO = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     CLIENT_ID = json.loads(
-        open('app/server/secret.json', 'r').read())['web']['client_id']
+        open('app/server/secret-dev.json', 'r').read())['web']['client_id']
 
 
 class Development(Config):
