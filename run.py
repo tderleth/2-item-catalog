@@ -16,8 +16,8 @@ def run(app=None):
             debug=app.config['DEBUG'])
 
 
-def application():
-    app = create_app('development')
+def application(foo, bar):
+    app = create_app('production')
     run(app)
 
 
