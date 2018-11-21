@@ -16,13 +16,13 @@ class Config(object):
     HOST = "0.0.0.0"
     SQLALCHEMY_ECHO = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
+    CLIENT_ID = json.loads(
+        open('app/server/secret.json', 'r').read())['web']['client_id']
 
 
 class Development(Config):
     """Dev Config class."""
 
-    CLIENT_ID = json.loads(
-        open('app/server/secret.json', 'r').read())['web']['client_id']
     ENV = 'Development'
     RELOAD = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'clave'
@@ -31,8 +31,6 @@ class Development(Config):
 class Production(Config):
     """Prod Config class."""
 
-    CLIENT_ID = json.loads(
-        open('app/server/secret.json', 'r').read())['web']['client_id']
     ENV = 'Production'
     RELOAD = False
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'clave'
