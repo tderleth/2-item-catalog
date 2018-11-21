@@ -16,6 +16,11 @@ def run(app=None):
             debug=app.config['DEBUG'])
 
 
+def application():
+    app = create_app('development')
+    run(app)
+
+
 if __name__ == '__main__':
     app = create_app('development')
     run(app)
